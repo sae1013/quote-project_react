@@ -5,7 +5,11 @@ import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import {getAllQuotes} from '../lib/api';
 
+
 function AllQuotes() {
+    useEffect(()=>{
+        console.log('allquote()');
+    })
     const {sendRequest, status, data, error} = useHttp(getAllQuotes,true);
     useEffect(()=>{
         sendRequest();
@@ -31,7 +35,7 @@ function AllQuotes() {
             <QuoteList quotes = {data}/>
         )
     }
-    return null
+    
 }
 
 export default AllQuotes
